@@ -40,7 +40,7 @@ The **Eureka Server** is the central registry for the microservices ecosystem. I
             └───────────────┼───────────────┘
                             │
                   ┌─────────▼─────────┐
-                  │ ★EUREKA SERVER★   │
+                  │ ★EUREKA SERVER★  │
                   │ (Port 8761)       │
                   └───────────────────┘
 ```
