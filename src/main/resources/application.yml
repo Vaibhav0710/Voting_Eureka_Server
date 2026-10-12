@@ -1,9 +1,34 @@
 server:
   port: 8761
 
+spring:
+  application:
+    name: eureka-server
+  # prod = JSON logs; add "logstash" to also ship them to ELK
+  profiles:
+    group:
+      prod: json-logs
+
 eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
   server:
     wait-time-in-ms-when-sync-empty: 0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus, info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+logging:
+  logstash:
+    destination: ${LOGSTASH_HOST:localhost}:${LOGSTASH_PORT:5000}
