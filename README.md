@@ -100,6 +100,18 @@ eureka-server/
 
 ---
 
+## 🐳 Docker
+
+```bash
+docker build -t voting/eureka-server:1.0.0 .
+```
+
+The multi-stage `Dockerfile` builds the jar with Maven and runs it on a Java 17 JRE (Alpine) as a non-root user, with a
+health check on `/actuator/health/readiness` (port 8761). To run the whole system, use `docker compose up -d --build` in
+the root `Voting_System` repo (see its README).
+
+---
+
 ## 📋 Implementation Progress
 
 > Detailed checklist: [IMPLEMENTATION_PLAN.md](src/main/java/com/voting/eurekaserver/docs/IMPLEMENTATION_PLAN.md)
